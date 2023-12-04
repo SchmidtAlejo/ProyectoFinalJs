@@ -1,3 +1,4 @@
+//Creacion de la clases
 class Producto {
     constructor(id, nombre, precio, descuento) {
 
@@ -11,15 +12,106 @@ class Producto {
         }
 
         this.id = id,
-            this.nombre = nombre,
-            this.precio = precio;
+        this.precio = precio,
+        this.nombre = nombre,
         this.descuento = descuento;
         this.precioFinal = this.aplicarDescuento();
     }
 }
 
+class CarritoItem {
+    constructor(producto, cantidad) {
+        this.producto = producto,
+        this.cantidad = cantidad
+    }
+}
+
+const carrito = JSON.parse(localStorage.getItem('carrito')) || {
+    carritosItems: [],
+    total: 0
+};
+
+
+//Carrito
+
+function vaciarCarritoFun() {
+    carrito.carritosItems = [];
+    actualizarCarrito();
+    localStorage.removeItem("carrito");
+}
+
+function actualizarCarritoItem(carritoItem, container){
+    const element = document.createElement("p");
+    element.textContent =
+    `Producto: ${carritoItem.producto.nombre} 
+    - Precio unitario: $${carritoItem.producto.precioFinal} 
+    - Cantidad: ${carritoItem.cantidad}`
+    container.append(element);
+}
+
+function actualizarCarrito() {
+    const carritoItemsContainer = document.getElementById("carritosItemsId");
+    if (carrito.carritosItems.length) {
+        carritoItemsContainer.innerHTML = '';
+        for (const carritoItem of carrito.carritosItems) {
+            actualizarCarritoItem(carritoItem, carritoItemsContainer);
+        }
+        const carritoTotal = document.createElement('p');
+        carritoTotal.textContent = `Total: ${carrito.total}`
+        carritoItemsContainer.append(carritoTotal);
+        const vaciarCarrito = document.createElement('button');
+        vaciarCarrito.textContent = "Vaciar carrito";
+        vaciarCarrito.onclick = () => {vaciarCarritoFun()};
+        carritoItemsContainer.append(vaciarCarrito);
+    }
+    else {
+        carritoItemsContainer.innerHTML = "<p>No hay productos agregados</p>";
+    }
+}
+
+//Funciones generales
+
+function agregarProducto(producto) {
+    const carritoItem = carrito.carritosItems.find(carritoItem => carritoItem.producto.id === producto.id);
+    if (carritoItem) {
+        carritoItem.cantidad++;
+    }
+    else {
+        carrito.carritosItems.push(new CarritoItem(producto, 1));
+    }
+    carrito.total += producto.precioFinal;
+    actualizarCarrito();
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function enlistarProductos(productosArray) {
+    for (const producto of productosArray) {
+        const productItemContainer = document.createElement("div");
+        const productItemNombre = document.createElement("h3");
+        const productItemPrecio = document.createElement("p");
+        const productItemDescuento = document.createElement("p");
+        const productItemPrecioFinal = document.createElement("p");
+        const productItemButton = document.createElement("button");
+        productItemNombre.textContent = producto.nombre;
+        productItemPrecio.innerText = "Precio: $" + producto.precio;
+        productItemDescuento.innerText = "Descuento: " + producto.descuento + "%";
+        productItemPrecioFinal.innerText = "Precio final: $" + producto.precioFinal;
+        productItemButton.innerText = "Agregar al carrito";
+        productItemButton.onclick = () => {
+            agregarProducto(producto);
+        }
+        productItemContainer.append(productItemNombre);
+        productItemContainer.append(productItemPrecio);
+        productItemContainer.append(productItemDescuento);
+        productItemContainer.append(productItemPrecioFinal);
+        productItemContainer.append(productItemButton);
+        productItemContainer.className= 'col-3 py-3'
+        divProductos.append(productItemContainer);
+    }
+}
+
+//Creacion de productos
 const productos = [];
-const columnas = ["id", "nombre", "precio", "descuento", "precioFinal"]
 productos.push(new Producto(1, "Celular", 150, 10));
 productos.push(new Producto(2, "Televisor", 200, 0));
 productos.push(new Producto(3, "Teclado", 20, 50));
@@ -41,52 +133,32 @@ productos.push(new Producto(18, "Auriculares Bluetooth", 50, 7));
 productos.push(new Producto(19, "Mochila para Laptop", 40, 0));
 productos.push(new Producto(20, "Smartwatch", 100, 18));
 
-console.table(productos, columnas);
+//Agregar los productos al DOM
+const divProductos = document.getElementById("productosId");
+divProductos.id = "productosId";
+enlistarProductos(productos);
+
+//Filtrador de precios
+const inputProductos = document.getElementById('inputProductosId');
 let productosFiltrados;
-function filtrarProductos() {
-    const precioMaximo = prompt("Filtre los productos por precio maximo (Presiona cancelar para no filtrar los productos)");
-    if (precioMaximo) {
+inputProductos.addEventListener('input', () => {
+    if (inputProductos.value) {
         productosFiltrados = productos.filter(producto => {
-            return producto.precioFinal <= precioMaximo;
-        })
-        console.table(productosFiltrados, columnas);
+            return producto.precioFinal <= inputProductos.value;
+        });
     }
-    else{
-        productosFiltrados= productos;
+    else if (inputProductos.value === '') {
+        productosFiltrados = productos;
     }
-}
-
-
-function agregarProducto() {
-    const productoId = prompt("Ingresa el ID del producto que quieres (Presiona cancelar para finalizar las seleccion de productos)");
-    const producto = productosFiltrados.find(producto => producto.id === Number.parseInt(productoId));
-    let resultado;
-    if (productoId !== null && producto) {
-        const cantidad = prompt("¿Cunatas unidades de este producto quieres?").toLowerCase();
-        resultado = producto.precioFinal * cantidad;
-    }
-    else if(productoId===null){
-        return null;
+    divProductos.innerHTML = '';
+    if (productosFiltrados.length > 0) {
+        enlistarProductos(productosFiltrados);
     }
     else {
-        resultado = 0;
+        const mensajeError = document.createElement('p');
+        mensajeError.textContent = "No se encontraron productos en ese rango de precio";
+        divProductos.append(mensajeError);
     }
-    return resultado;
-}
+});
 
-function calcularCosto() {
-    let total = 0;
-    let valorItem;
-    do {
-        valorItem = agregarProducto();
-        if (valorItem !== null) {
-            total += valorItem;
-            console.log(total);
-        }
-    } while (valorItem !== null);
-
-    return total;
-}
-alert("Los productos y precios aparecen en la Consola");
-filtrarProductos()
-alert("Costo total: $" + calcularCosto());
+actualizarCarrito();
