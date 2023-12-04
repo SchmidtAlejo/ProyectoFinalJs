@@ -61,6 +61,7 @@ function actualizarCarrito() {
         carritoItemsContainer.append(carritoTotal);
         const vaciarCarrito = document.createElement('button');
         vaciarCarrito.textContent = "Vaciar carrito";
+        vaciarCarrito.className = "btn btn-primary";
         vaciarCarrito.onclick = () => {vaciarCarritoFun()};
         carritoItemsContainer.append(vaciarCarrito);
     }
@@ -97,6 +98,7 @@ function enlistarProductos(productosArray) {
         productItemDescuento.innerText = "Descuento: " + producto.descuento + "%";
         productItemPrecioFinal.innerText = "Precio final: $" + producto.precioFinal;
         productItemButton.innerText = "Agregar al carrito";
+        productItemButton.className = "btn btn-primary";
         productItemButton.onclick = () => {
             agregarProducto(producto);
         }
