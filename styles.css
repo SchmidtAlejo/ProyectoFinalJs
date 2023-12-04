@@ -1,4 +1,4 @@
-.carrito-container{
-    position: fixed;
-    right: 0;
+.col-9{
+    height: 100vh;
+    overflow-y: auto;
 }
