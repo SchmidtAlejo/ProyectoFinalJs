@@ -1,0 +1,15 @@
+@mixin textos($size, $family, $color, $weight){
+    font-size: $size;
+    font-family: $family;
+    color: $color;
+    font-weight: $weight;
+    line-height: 1.5;
+}
+
+@mixin flexbox($direction, $align, $justify, $wrap){
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+    flex-wrap: $wrap;
+}
