@@ -1,17 +1,11 @@
-.img-thumbnail {
-  width: 200px !important;
-  height: 200px !important;
-  object-fit: contain;
-}
-
 body {
   background-color: $background;
 }
 
-.lock-scrollbar{
+.lock-scrollbar {
   overflow: hidden;
-  top:0;
-  overflow-y: scroll!important;
+  top: 0;
+  overflow-y: scroll !important;
   position: fixed;
   left: 0;
   right: 0;
@@ -74,16 +68,16 @@ h1 {
   &__visible {
     display: block;
   }
-  #buyButtonId{
+  #buyButtonId {
     width: 100%;
     padding: 16px;
     border: none;
     background-color: $mainColor3 !important;
-    &:hover{
+    &:hover {
       background-color: $mainColor4 !important;
     }
   }
-  .cart-padding-top{
+  .cart-padding-top {
     padding-top: 80px;
   }
 }
@@ -92,11 +86,15 @@ h1 {
   padding: 16px;
   border-radius: 16px;
 
-  button{
+  button {
     background-color: $mainColor3 !important;
-    &:hover{
+    &:hover {
       background-color: $mainColor4 !important;
     }
+  }
+
+  a {
+    text-decoration: none !important;
   }
 
   .group {

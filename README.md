@@ -23,3 +23,4 @@ npm run sass:watch: Para que se puedan llevar los cambios hechos en los archivos
 
 ## Enlaces
 - Link a [Vercel](https://proyecto-js-coderhouse-kohl.vercel.app "Vercel")
+- Link a [Pages](https://schmidtalejo.github.io/ProyectoJsCoderhouse/ "Pages")

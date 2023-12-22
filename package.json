@@ -14,5 +14,8 @@
     "sass:watch": "sass --watch scss/styles.scss css/styles.css"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
 }
