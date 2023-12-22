@@ -112,12 +112,27 @@ h1 {
   #buyButtonId{
     width: 100%;
     padding: 16px;
+    border: none;
+    background-color: $mainColor3 !important;
+    &:hover{
+      background-color: $mainColor4 !important;
+    }
+  }
+  .cart-padding-top{
+    padding-top: 80px;
   }
 }
 .products {
   background-color: $white1;
   padding: 16px;
   border-radius: 16px;
+
+  button{
+    background-color: $mainColor3 !important;
+    &:hover{
+      background-color: $mainColor4 !important;
+    }
+  }
 
   .group {
     display: flex;
@@ -128,9 +143,6 @@ h1 {
       margin-bottom: auto !important;
       margin-top: auto !important;
       display: flex;
-    }
-
-    h3 {
     }
   }
 
@@ -179,8 +191,6 @@ h1 {
     }
   }
 
-  &__type {
-  }
   &__price {
     font-weight: bold;
   }

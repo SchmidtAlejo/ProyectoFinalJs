@@ -4,24 +4,14 @@
   box-sizing: border-box;
 }
 
-body {
-
-  &::-webkit-scrollbar {
-    width: 8px;
-
-    &-thumb {
-      background-color: $mainColor5;
-    }
-  }
-}
-
 footer {
   height: 80px;
   text-align: center;
-  @include flexbox(column, center, center, nowrap);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   p {
-    //@include textos($textMd, $mainFont, $gray1, $fontRegular);
     margin: 0;
   }
 }
@@ -43,16 +33,14 @@ main {
   }
 }
 
+button{
+  border: none !important;
+}
+
 h1 {
-  //@include textos($textXxl, $secondaryFont, $secondaryColor, $fontBold);
-  width: fit-content;
-  border-radius: 8px;
+  font-size: $textXxl !important;
 }
 
-h4 {
-  //@include textos($textXl, $mainFont, $white1, $fontRegular);
-}
-
-p{
-  //@include textos($textMd, $mainFont, $white1, $fontLight);
+h2 {
+  font-size: $textXl !important;
 }

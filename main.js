@@ -55,10 +55,12 @@ function comprarFun() {
 function closeCart() {
     const carritoDiv = document.getElementsByClassName('cart')[0];
     carritoDiv.className = 'cart';
-    document.body.className= ""
+    document.body.className= "";
+    carritoActivo= false;
 }
 
 function openCart() {
+    carritoActivo= true;
     const carritoDiv = document.getElementsByClassName('cart')[0];
     carritoDiv.className = 'cart cart__visible'
     document.body.className= "lock-scrollbar"
@@ -67,7 +69,6 @@ function openCart() {
     button.className="navbar-toggler collapsed";
     button.onclick = () =>{
         closeCart();
-        carritoActivo= false;
     }
     navbarCollapse.className="navbar-collapse collapse";
 }
@@ -120,6 +121,9 @@ function crearCarritoItem(carritoItem) {
 
 function buy(){
     const buttonBuy= document.getElementById("buyButtonId");
+    console.log(carrito.carritosItems.length);
+    console.log(buttonBuy.disabled);
+    carrito.carritosItems.length?buttonBuy.disabled=false:buttonBuy.disabled=true;
     buttonBuy.onclick = () =>{
         comprarFun();
     }
@@ -144,7 +148,10 @@ function actualizarCarrito() {
     const carritoToggleButton = document.getElementById("cartButtonId");
     carritoToggleButton.onclick = () => {
         !carritoActivo ? openCart() : closeCart();
-        carritoActivo = !carritoActivo;
+    }
+    const closeCartButton = document.getElementById("closeCartId");
+    closeCartButton.onclick = () =>{
+        closeCart();
     }
 }
 
@@ -172,35 +179,6 @@ function agregarProducto(producto) {
         }
     }).showToast();
 }
-
-//const mainElement = document.getElementById("mainId");
-//mainElement.onclick = () => { closeCart() }
-
-// function enlistarProductos(productosArray) {
-//     for (const producto of productosArray) {
-//         const productItemContainer = document.createElement("div");
-//         const productItemNombre = document.createElement("h3");
-//         const productItemImagen = document.createElement("img");
-//         const productItemPrecio = document.createElement("p");
-//         const productItemButton = document.createElement("button");
-//         productItemNombre.textContent = producto.nombre;
-//         productItemImagen.src = producto.imagen;
-//         productItemImagen.className = "img-thumbnail"
-//         productItemPrecio.innerText = "Precio: $" + producto.precio;
-//         productItemButton.innerText = "Agregar al carrito";
-//         productItemButton.className = "btn btn-primary";
-//         productItemButton.onclick = () => {
-//             agregarProducto(producto);
-//         }
-//         productItemContainer.append(productItemImagen);
-//         productItemContainer.append(productItemNombre);
-//         productItemContainer.append(productItemPrecio);
-//         productItemContainer.append(productItemButton);
-//         productItemContainer.className =
-//             'col-lg-3 col-md-4 col-sm-6 py-3 text-center align-items-center products__item';
-//         divProductos.append(productItemContainer);
-//     }
-// }
 
 function enlistarProductos(productosArray) {
     const productGridContainer = document.getElementsByClassName("grid")[0];

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Titulo -->
-    <title>Productos Tecnológicos</title>
+    <title>CrazyTech</title>
     <!-- Icono -->
     <link rel="shortcut icon" href="img/icon.webp" type="image/x-icon" />
     <!-- Dependencias -->
@@ -39,7 +39,7 @@
         data-bs-theme="dark"
       >
         <div class="container">
-          <a class="navbar-brand" href="#"> Titulo </a>
+          <a class="navbar-brand" href="#"> CrazyTech </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -71,39 +71,19 @@
     <main id="mainId" class="container">
       <div class="cart">
         <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
-          <!--
-            Background backdrop, show/hide based on slide-over state.
-        
-            Entering: "ease-in-out duration-500"
-              From: "opacity-0"
-              To: "opacity-100"
-            Leaving: "ease-in-out duration-500"
-              From: "opacity-100"
-              To: "opacity-0"
-          -->
           <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
         
           <div class="fixed inset-0 overflow-hidden">
             <div class="absolute inset-0 overflow-hidden">
               <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-                <!--
-                  Slide-over panel, show/hide based on slide-over state.
-        
-                  Entering: "transform transition ease-in-out duration-500 sm:duration-700"
-                    From: "translate-x-full"
-                    To: "translate-x-0"
-                  Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
-                    From: "translate-x-0"
-                    To: "translate-x-full"
-                -->
                 <div class="pointer-events-auto w-screen max-w-md">
                   <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                    <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                    <div class="cart-padding-top flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                       <div class="flex items-start justify-between">
-                        <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Shopping cart</h2>
+                        <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Carrito</h2>
                         <div class="ml-3 flex h-7 items-center">
                           <button type="button" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500">
-                            <span class="absolute -inset-0.5"></span>
+                            <span id="closeCartId" class="absolute -inset-0.5"></span>
                             <span class="sr-only">Close panel</span>
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -124,7 +104,7 @@
                         <p>Total</p>
                         <p id="totalCartId"></p>
                       </div>
-                      <div class="mt-6"><button id="buyButtonId" type="button" class="text-white bg-purple-700 hover:bg-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700">Comprar</button>
+                      <div class="mt-6"><button id="buyButtonId" type="button" class="btn btn-primary text-white font-medium rounded-lg text-sm px-5 py-2.5 mb-2">Comprar</button>
                       </div>
                     </div>
                   </div>
@@ -135,7 +115,7 @@
         </div>
         
       </div>
-      <h1 class="my-5 text-center">Locos por la tecnología</h1>
+      <h1 class="my-5 text-center">CrazyTech</h1>
       <div class="products">
         <h2 id="products" class="mb-3">Productos Tecnológicos</h2>
         <div class="my-3 products__filter">
