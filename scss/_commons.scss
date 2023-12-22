@@ -33,6 +33,11 @@ main {
   }
 }
 
+.toast-background{
+  background: linear-gradient(to left,$mainColor4, $mainColor5) !important;
+  border-radius: 8px;
+}
+
 button{
   border: none !important;
 }
