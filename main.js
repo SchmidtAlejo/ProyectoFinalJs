@@ -72,17 +72,17 @@ function openCart() {
 function updateCartItem(cartItem) {
     const img = document.getElementById(`carritoItemImageId${cartItem.product.id}`);
     img.src = cartItem.product.img
-    const name = document.getElementById(`carritoItemNameId${cartItem.producto.id}`);
+    const name = document.getElementById(`carritoItemNameId${cartItem.product.id}`);
     name.textContent = cartItem.product.name;
-    const price = document.getElementById(`carritoItemPriceId${cartItem.producto.id}`);
+    const price = document.getElementById(`carritoItemPriceId${cartItem.product.id}`);
     price.textContent = "$" + cartItem.product.price;
-    const quant = document.getElementById(`carritoItemQuantityId${cartItem.producto.id}`);
+    const quant = document.getElementById(`carritoItemQuantityId${cartItem.product.id}`);
     quant.textContent = "Cantidad: " + cartItem.quant;
 }
 
 function createRemoves() {
     for (const cartItem of cart.cartsItems) {
-        const removeButton = document.getElementById(`carritoItemRemoveId${cartItem.producto.id}`);
+        const removeButton = document.getElementById(`carritoItemRemoveId${cartItem.product.id}`);
         removeButton.onclick = () => {
             removeCartItem(cartItem);
         }
@@ -117,8 +117,6 @@ function createCartItem(cartItem) {
 
 function buy(){
     const buttonBuy= document.getElementById("buyButtonId");
-    console.log(cart.cartsItems.length);
-    console.log(buttonBuy.disabled);
     cart.cartsItems.length?buttonBuy.disabled=false:buttonBuy.disabled=true;
     buttonBuy.onclick = () =>{
         finishBuy();
@@ -163,9 +161,9 @@ function addProduct(product) {
     }
     cart.total += product.price;
     updateCart();
-    localStorage.setItem("carrito", JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
     Toastify({
-        text: `${product.nombre} agregado al carrito`,
+        text: `${product.name} agregado al carrito`,
         className: "info toast-background",
         gravity: "bottom",
         position: "center",
@@ -231,13 +229,13 @@ const products = [
 ];
 
 //Add the products to the DOM
-const divProducts = document.getElementById("productosId");
+const divProducts = document.getElementById("productsId");
 divProducts.innerHTML = '<div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">\
           </div>'
 listProducts(products);
 
 //Price filter
-const inputProducts = document.getElementById('inputProductosId');
+const inputProducts = document.getElementById('inputProductsId');
 let productsFilter;
 inputProducts.addEventListener('input', () => {
     if (inputProducts.value) {
