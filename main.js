@@ -1,13 +1,4 @@
 //class creation
-class Product {
-    constructor(id, name, img, price) {
-
-        this.id = id,
-            this.img = img,
-            this.price = price,
-            this.name = name
-    }
-}
 
 class CartItem {
     constructor(product, quant) {
@@ -30,7 +21,7 @@ function removeCartItem(cartItem) {
     if (index !== -1) {
         cart.cartsItems.splice(index, 1);
     }
-    cart.total =cart.total- cartItem.product.price * cartItem.quant;
+    cart.total = cart.total - cartItem.product.price * cartItem.quant;
     updateCart();
     localStorage.setItem("cart", JSON.stringify(cart));
 }
@@ -51,22 +42,22 @@ function finishBuy() {
 function closeCart() {
     const cartDiv = document.getElementsByClassName('cart')[0];
     cartDiv.className = 'cart';
-    document.body.className= "";
-    isCartActive= false;
+    document.body.className = "";
+    isCartActive = false;
 }
 
 function openCart() {
-    isCartActive= true;
+    isCartActive = true;
     const cartDiv = document.getElementsByClassName('cart')[0];
     cartDiv.className = 'cart cart__visible'
-    document.body.className= "lock-scrollbar"
+    document.body.className = "lock-scrollbar"
     const button = document.getElementsByClassName("navbar-toggler")[0];
     const navbarCollapse = document.getElementsByClassName("navbar-collapse")[0];
-    button.className="navbar-toggler collapsed";
-    button.onclick = () =>{
+    button.className = "navbar-toggler collapsed";
+    button.onclick = () => {
         closeCart();
     }
-    navbarCollapse.className="navbar-collapse collapse";
+    navbarCollapse.className = "navbar-collapse collapse";
 }
 
 function updateCartItem(cartItem) {
@@ -115,10 +106,10 @@ function createCartItem(cartItem) {
     updateCartItem(cartItem);
 }
 
-function buy(){
-    const buttonBuy= document.getElementById("buyButtonId");
-    cart.cartsItems.length?buttonBuy.disabled=false:buttonBuy.disabled=true;
-    buttonBuy.onclick = () =>{
+function buy() {
+    const buttonBuy = document.getElementById("buyButtonId");
+    cart.cartsItems.length ? buttonBuy.disabled = false : buttonBuy.disabled = true;
+    buttonBuy.onclick = () => {
         finishBuy();
     }
 }
@@ -133,7 +124,7 @@ function updateCart() {
             createCartItem(cartItems)
         }
     }
-    else{
+    else {
         carritosItemsContainer.innerHTML = '<p class="text-center mt-5">No hay productos agregados al carrito</p>';
     }
     createRemoves();
@@ -144,7 +135,7 @@ function updateCart() {
         !isCartActive ? openCart() : closeCart();
     }
     const closeCartButton = document.getElementById("closeCartId");
-    closeCartButton.onclick = () =>{
+    closeCartButton.onclick = () => {
         closeCart();
     }
 }
@@ -171,6 +162,7 @@ function addProduct(product) {
     }).showToast();
 }
 
+const divProducts = document.getElementById("productsId");
 function listProducts(productsArray) {
     const productGridContainer = document.getElementsByClassName("grid")[0];
     for (const product of productsArray) {
@@ -205,34 +197,23 @@ function listProducts(productsArray) {
 }
 
 //Product creation
-const products = [
-    new Product(1, "Celular", "https://static.hendel.com/media/catalog/product/cache/0c3e9ac8430b5a3e77d1544ae1698a10/4/8/48229-min.jpg", 150),
-    new Product(2, "Televisor", "https://noblex.com.ar/media/wysiwyg/1408_tv.JPG", 200, 0),
-    new Product(3, "Teclado", "https://http2.mlstatic.com/D_NQ_NP_789265-MLA43540912849_092020-O.webp", 20, 50),
-    new Product(4, "Mouse", "https://http2.mlstatic.com/D_NQ_NP_740970-MLM50439192936_062022-O.webp", 10, 20),
-    new Product(5, "Pendrive", "https://images.fravega.com/f500/6b52161fb55162cd722918d95042749b.jpg", 5, 0),
-    new Product(6, "Audífonos", "https://www.sony.com.ar/image/4e59487a5c5175284a49830878185789?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF", 50),
-    new Product(7, "Monitor", "https://www.venex.com.ar/products_images/1662643162_221v8.png", 180, 8),
-    new Product(8, "Impresora", "https://images.fravega.com/f1000/79d8ae305c8e4b1584554256d5b2c0ed.jpg", 90, 25),
-    new Product(9, "Altavoces", "https://http2.mlstatic.com/D_NQ_NP_900286-MLU70989872953_082023-O.webp", 40, 5),
-    new Product(10, "Cámara", "https://arsonyb2c.vtexassets.com/arquivos/ids/199524/ILCE-6400L_1.jpg?v=636864161613800000", 120),
-    new Product(11, "Silla de Oficina", "https://www.mink.com.ar/qloud/ryr/fotos/22634-1.jpg", 120, 10),
-    new Product(12, "Lámpara LED", "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/267/984/products/le27-eca800201-ea21e030f93ede390b16575667669506-640-0.png", 30),
-    new Product(13, "Router WiFi", "https://http2.mlstatic.com/D_NQ_NP_659815-MLA31117176634_062019-O.webp", 70),
-    new Product(14, "Disco Duro Externo", "https://http2.mlstatic.com/D_NQ_NP_627809-MLA51326771407_082022-O.webp", 85),
-    new Product(15, "Memoria RAM", "https://http2.mlstatic.com/D_NQ_NP_936220-MLU54970736314_042023-O.webp", 60),
-    new Product(16, "Tablet", 'https://www.lenovo.com/medias/mkt-hero.png?context=bWFzdGVyfHJvb3R8MjM1NTEwfGltYWdlL3BuZ3xoNzIvaDBmLzE1ODY4NzEwOTQ0Nzk4LnBuZ3xmNzRmYmVmYmI5YTljMTI0OTY2MzRlNTgzYWRiZjE0MDVmMjI2ODZmN2E0M2FjNjQ5NDRmNjQ1Y2ZmOGVlNWQz', 180),
-    new Product(17, "Cargador Portátil", "https://http2.mlstatic.com/D_NQ_NP_856761-MLA41816500687_052020-O.webp", 25),
-    new Product(18, "Auriculares Bluetooth", "https://http2.mlstatic.com/D_NQ_NP_662526-MLA52678025326_122022-O.webp", 50),
-    new Product(19, "Mochila para Laptop", "https://d2ye0ltusw47tz.cloudfront.net/61136210-thickbox_default/mochila-topper-laptop-ii-unisex.jpg", 40),
-    new Product(20, "Smartwatch", "https://www.suono.com.ar/media/catalog/product/cache/be277d79a8d024490fdf6d84a1464e00/d/i/dise_o_sin_t_tulo_79_.jpg", 100),
-];
+let products;
+
+fetch('data.json')
+    .then(response => {
+        return response.json();
+    })
+    .then(data => {
+        products = data;
+        divProducts.innerHTML = '<div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">\
+              </div>'
+        listProducts(products);
+    })
+    .catch(error => {
+        console.error(error);
+    });
 
 //Add the products to the DOM
-const divProducts = document.getElementById("productsId");
-divProducts.innerHTML = '<div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">\
-          </div>'
-listProducts(products);
 
 //Price filter
 const inputProducts = document.getElementById('inputProductsId');

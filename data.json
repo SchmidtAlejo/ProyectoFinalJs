@@ -1,0 +1,130 @@
+[
+    {
+        "id": 1,
+        "name": "Celular",
+        "img": "https://static.hendel.com/media/catalog/product/cache/0c3e9ac8430b5a3e77d1544ae1698a10/4/8/48229-min.jpg",
+        "price": 150
+    },
+    {
+        "id": 2,
+        "name": "Televisor",
+        "img": "https://noblex.com.ar/media/wysiwyg/1408_tv.JPG",
+        "price": 200,
+        "discount": 0
+    },
+    {
+        "id": 3,
+        "name": "Teclado",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_789265-MLA43540912849_092020-O.webp",
+        "price": 20,
+        "stock": 50
+    },
+    {
+        "id": 4,
+        "name": "Mouse",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_740970-MLM50439192936_062022-O.webp",
+        "price": 10,
+        "stock": 20
+    },
+    {
+        "id": 5,
+        "name": "Pendrive",
+        "img": "https://images.fravega.com/f500/6b52161fb55162cd722918d95042749b.jpg",
+        "price": 5,
+        "stock": 0
+    },
+    {
+        "id": 6,
+        "name": "Audífonos",
+        "img": "https://www.sony.com.ar/image/4e59487a5c5175284a49830878185789?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF",
+        "price": 50
+    },
+    {
+        "id": 7,
+        "name": "Monitor",
+        "img": "https://www.venex.com.ar/products_images/1662643162_221v8.png",
+        "price": 180,
+        "stock": 8
+    },
+    {
+        "id": 8,
+        "name": "Impresora",
+        "img": "https://images.fravega.com/f1000/79d8ae305c8e4b1584554256d5b2c0ed.jpg",
+        "price": 90,
+        "stock": 25
+    },
+    {
+        "id": 9,
+        "name": "Altavoces",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_900286-MLU70989872953_082023-O.webp",
+        "price": 40,
+        "stock": 5
+    },
+    {
+        "id": 10,
+        "name": "Cámara",
+        "img": "https://arsonyb2c.vtexassets.com/arquivos/ids/199524/ILCE-6400L_1.jpg?v=636864161613800000",
+        "price": 120
+    },
+    {
+        "id": 11,
+        "name": "Silla de Oficina",
+        "img": "https://www.mink.com.ar/qloud/ryr/fotos/22634-1.jpg",
+        "price": 120,
+        "stock": 10
+    },
+    {
+        "id": 12,
+        "name": "Lámpara LED",
+        "img": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/267/984/products/le27-eca800201-ea21e030f93ede390b16575667669506-640-0.png",
+        "price": 30
+    },
+    {
+        "id": 13,
+        "name": "Router WiFi",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_659815-MLA31117176634_062019-O.webp",
+        "price": 70
+    },
+    {
+        "id": 14,
+        "name": "Disco Duro Externo",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_627809-MLA51326771407_082022-O.webp",
+        "price": 85
+    },
+    {
+        "id": 15,
+        "name": "Memoria RAM",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_936220-MLU54970736314_042023-O.webp",
+        "price": 60
+    },
+    {
+        "id": 16,
+        "name": "Tablet",
+        "img": "https://www.lenovo.com/medias/mkt-hero.png?context=bWFzdGVyfHJvb3R8MjM1NTEwfGltYWdlL3BuZ3xoNzIvaDBmLzE1ODY4NzEwOTQ0Nzk4LnBuZ3xmNzRmYmVmYmI5YTljMTI0OTY2MzRlNTgzYWRiZjE0MDVmMjI2ODZmN2E0M2FjNjQ5NDRmNjQ1Y2ZmOGVlNWQz",
+        "price": 180
+    },
+    {
+        "id": 17,
+        "name": "Cargador Portátil",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_856761-MLA41816500687_052020-O.webp",
+        "price": 25
+    },
+    {
+        "id": 18,
+        "name": "Auriculares Bluetooth",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_662526-MLA52678025326_122022-O.webp",
+        "price": 50
+    },
+    {
+        "id": 19,
+        "name": "Mochila para Laptop",
+        "img": "https://d2ye0ltusw47tz.cloudfront.net/61136210-thickbox_default/mochila-topper-laptop-ii-unisex.jpg",
+        "price": 40
+    },
+    {
+        "id": 20,
+        "name": "Smartwatch",
+        "img": "https://www.suono.com.ar/media/catalog/product/cache/be277d79a8d024490fdf6d84a1464e00/d/i/dise_o_sin_t_tulo_79_.jpg",
+        "price": 100
+    }
+]
