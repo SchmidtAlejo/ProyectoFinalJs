@@ -19,7 +19,7 @@ En este proyecto se utilizaron las siguientes tecnologías:
 
 ## Comandos
 Lista de comandos:
-npm run sass:watch: Para que se puedan llevar los cambios hechos en los archivos .scss a los .css
+- npm run sass:watch: Para que se puedan llevar los cambios hechos en los archivos .scss a los .css
 
 ## Enlaces
 - Link a [Vercel](https://proyecto-js-coderhouse-kohl.vercel.app "Vercel")
